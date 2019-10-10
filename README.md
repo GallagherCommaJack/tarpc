@@ -114,11 +114,9 @@ impl World for HelloServer {
 Lastly let's write our `main` that will start the server. While this example uses an
 [in-process
 channel](https://docs.rs/tarpc/0.18.0/tarpc/transport/channel/struct.UnboundedChannel.html),
-tarpc also ships
-[bincode](https://docs.rs/tarpc-bincode-transport/0.7.0/tarpc_bincode_transport/)
-and
-[JSON](https://docs.rs/tarpc-json-transport/0.1.0/tarpc_json_transport)
-tokio-net based TCP transports that are generic over all serializable types.
+tarpc also ships a
+[tokio-net based TCP transport](https://docs.rs/tarpc-tcp-transport/0.1.0/tarpc_tcp_transport)
+that is generic over any Serde-compatible data format and serializable type.
 
 ```rust
 #[tokio::main]

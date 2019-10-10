@@ -18,6 +18,7 @@ use tarpc::{
     context,
     server::{self, Channel, Handler},
 };
+use tokio_serde::formats::Json;
 
 // This is the type that implements the generated World trait. It is the business logic
 // and is used to start the server.
@@ -64,9 +65,9 @@ async fn main() -> io::Result<()> {
 
     let server_addr = (IpAddr::from([0, 0, 0, 0]), port);
 
-    // tarpc_json_transport is provided by the associated crate tarpc-json-transport. It makes it easy
-    // to start up a serde-powered json serialization strategy over TCP.
-    tarpc_json_transport::listen(&server_addr)
+    // tarpc_tcp_transport is provided by the associated crate tarpc-tcp-transport. It makes it easy
+    // to start up a Serde-powered serialization strategy over TCP.
+    tarpc_tcp_transport::listen(&server_addr, (Json::default, Json::default))
         .await?
         // Ignore accept errors.
         .filter_map(|r| future::ready(r.ok()))

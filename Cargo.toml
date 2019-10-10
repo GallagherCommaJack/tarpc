@@ -4,8 +4,7 @@ members = [
     "example-service",
     "rpc",
     "trace",
-    "bincode-transport",
-    "json-transport",
     "tarpc",
+    "tcp-transport",
     "plugins",
 ]

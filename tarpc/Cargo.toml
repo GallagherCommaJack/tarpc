@@ -27,14 +27,15 @@ tarpc-plugins = { path = "../plugins", version = "0.5.0" }
 
 [dev-dependencies]
 assert_matches = "1.0"
-tarpc-json-transport = { version = "0.1", path = "../json-transport" }
+tarpc-tcp-transport = { version = "0.1", path = "../tcp-transport" }
 bytes = { version = "0.4", features = ["serde"] }
 env_logger = "0.6"
-futures-preview = { version = "0.3.0-alpha.18" }
+futures-preview = { version = "0.3.0-alpha" }
 humantime = "1.0"
 log = "0.4"
-pin-utils = "0.1.0-alpha.4"
-tokio = "0.2.0-alpha.3"
+pin-utils = "0.1.0-alpha"
+tokio = "0.2.0-alpha"
+tokio-serde = { git = "https://github.com/carllerche/tokio-serde", branch = "formats", features = ["json"] }
 
 [[example]]
 name = "server_calling_server"
